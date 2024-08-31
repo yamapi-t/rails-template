@@ -15,7 +15,8 @@ ENV RAILS_ENV="development" \
 # Throw-away build stage to reduce size of final image
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config curl libvips postgresql-client
+    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config curl libvips postgresql-client nodejs npm sudo vim && \
+    sudo npm install -g yarn
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
