@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   # Render dynamic PWA files from app/views/pwa/*
   # Defines the root path route ("/")
-  # root "posts#index"
+  root 'home#index'
 end
