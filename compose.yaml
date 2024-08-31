@@ -1,0 +1,32 @@
+services:
+  rails:
+    build: .
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
+    init: true
+    tty: true
+    volumes:
+      - ./:/rails
+
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      TZ: Asia/Tokyo
+    init: true
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user"]
+      interval: 2s
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
