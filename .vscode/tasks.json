@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run rspec: all files",
+      "type": "shell",
+      "command": "docker-compose exec -e RAILS_ENV=test rails bundle exec rspec",
+      "group": "test",
+    },
+    {
+      "label": "run rspec: active example",
+      "type": "shell",
+      "command": "docker-compose exec -e RAILS_ENV=test rails bundle exec rspec ${relativeFile}:${lineNumber}",
+    },
+    {
+      "label": "rails console",
+      "type": "shell",
+      "command": "docker-compose exec rails bundle exec rails c",
+    }
+  ],
+  "problemMatcher": [],
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": true,
+    "panel": "shared",
+    "showReuseMessage": true,
+    "clear": false
+  }
+}
