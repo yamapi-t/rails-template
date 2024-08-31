@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "shopify.ruby-lsp",
+    "bradlc.vscode-tailwindcss",
+    "sporto.rails-go-to-spec",
+    "aki77.rails-view-component"
+  ]
+}

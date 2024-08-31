@@ -1,0 +1,22 @@
+{
+    "editor.tabSize": 2,
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp",
+        "editor.formatOnSave": true
+    },
+    "rubyLsp.formatter": "rubocop",
+    "rubyLsp.rubyVersionManager": {
+        "identifier": "asdf"
+    },
+    "rubyLsp.linters": [
+        "rubocop"
+    ],
+    "railsPartial.viewFileExtensions": [
+        "html.haml",
+        "html.slim",
+        "html.erb"
+    ],
+    "tailwindCSS.includeLanguages": {
+        "html.erb": "html"
+    }
+}
