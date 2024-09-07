@@ -40,4 +40,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
+
+  def self.find_or_create_for_oauth!(auth)
+    find_or_create_by!(email: auth.info.email) do |user|
+      user.attributes = {
+        provider: auth.provider,
+        uid: auth.uid,
+        username: auth.info.name,
+        email: auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      }
+    end
+  end
 end
