@@ -21,6 +21,9 @@ Style/FrozenStringLiteralComment:
     - bin/*
     - Rakefile
 
+Rspec/ContextWording:
+  Enabled: false
+
 Lint/MissingSuper:
   Enabled: true
   Exclude:
