@@ -37,5 +37,11 @@
 #
 FactoryBot.define do
   factory :user do
+    sequence(:email) { |n| "#{n}_#{Faker::Internet.email(domain: 'example.com')}" }
+    password { Devise.friendly_token[0, 20] }
+
+    trait :confirmed do
+      after(:create, &:confirm)
+    end
   end
 end
