@@ -38,5 +38,23 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#find_or_create_for_oauth!' do
+    context 'ユーザーが未登録の場合' do
+      it 'ユーザーが増えること' do
+        expect do
+          described_class.find_or_create_for_oauth!(OmniAuth.config.mock_auth[:google_oauth2])
+        end.to change(described_class, :count).by(1)
+      end
+    end
+
+    context 'ユーザーが登録済みの場合' do
+      before { create(:user, :confirmed, email: 'test@example.com') }
+
+      it 'ユーザーが増えないこと' do
+        expect do
+          described_class.find_or_create_for_oauth!(OmniAuth.config.mock_auth[:google_oauth2])
+        end.not_to change(described_class, :count)
+      end
+    end
+  end
 end
