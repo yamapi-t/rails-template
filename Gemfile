@@ -74,6 +74,8 @@ group :development do
   gem 'web-console'
 
   gem 'hotwire-livereload'
+
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do
