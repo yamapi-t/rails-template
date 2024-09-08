@@ -275,7 +275,6 @@ Devise.setup do |config|
   config.omniauth :google_oauth2,
                   Rails.application.credentials.dig(:google, :client_id),
                   Rails.application.credentials.dig(:google, :client_secret)
-  OmniAuth.config.allowed_request_methods = %i[get post]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
