@@ -41,8 +41,8 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
-  def self.find_or_create_for_oauth!(auth)
-    find_or_create_by!(email: auth.info.email) do |user|
+  def self.find_or_create_for_oauth(auth)
+    find_or_create_by(email: auth.info.email) do |user|
       user.attributes = {
         provider: auth.provider,
         uid: auth.uid,
